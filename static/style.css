@@ -7,3 +7,22 @@ body {
     padding: 0;
     margin: 0
 }
+
+
+canvas {
+    border: #222 dashed 2px;
+}
+
+button {
+    padding: 10px 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 2px;
+    border: 1px solid #064184;
+    background-color: #3C91E6;
+}
+
+button:hover {
+    background-color: #419FFC;
+}

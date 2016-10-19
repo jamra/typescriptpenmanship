@@ -2,3 +2,5 @@
 *.swp
 
 /static/node_modules/*
+
+*.hot-update.js*

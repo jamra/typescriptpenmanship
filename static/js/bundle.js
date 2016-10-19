@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "261dbc6153dd70869fee"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "92937c00531dee426ab9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -589,13 +589,8 @@
 	window.onload = function () {
 	    canvas = document.getElementById('cnvs');
 	    ctx = canvas.getContext("2d");
-	    ctx.fillStyle = "black";
+	    ctx.fillStyle = "#EEE";
 	    ctx.fillRect(0, 0, 1280, 720);
-	    //     ctx.beginPath();
-	    //    ctx.strokeStyle = "red";
-	    //    ctx.lineWidth = 2;
-	    //    ctx.arc(200, 200, 100, 0, 2 * Math.PI);
-	    //    ctx.stroke();
 	    canvas.addEventListener("mousemove", function (e) {
 	        findxy('move', e);
 	    }, false);
@@ -634,17 +629,19 @@
 	    ctx.beginPath();
 	    ctx.moveTo(prevX, prevY);
 	    ctx.lineTo(currX, currY);
-	    ctx.strokeStyle = "white";
+	    ctx.strokeStyle = "#333";
 	    ctx.lineWidth = 2;
 	    ctx.stroke();
 	    ctx.closePath();
 	};
 	var genImage = function () {
-	    document.getElementById("canvasimg").style.border = "2px solid";
 	    var dataURL = canvas.toDataURL();
-	    document.getElementById("canvasimg").src = dataURL;
-	    document.getElementById("canvasimg").style.display = "inline";
+	    var img = document.getElementById("canvasimg");
+	    img.style.border = "2px solid";
+	    img["src"] = dataURL;
+	    console.log(img);
 	};
+	window['genImage'] = genImage;
 
 
 /***/ }
