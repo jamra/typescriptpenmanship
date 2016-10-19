@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "92937c00531dee426ab9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9cee0981d58850be7a23"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -617,6 +617,7 @@
 	    }
 	    if (res == 'move') {
 	        if (flag) {
+	            //TODO: Add acceleration
 	            prevX = currX;
 	            prevY = currY;
 	            currX = e.clientX - canvas.offsetLeft;

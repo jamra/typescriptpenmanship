@@ -43,6 +43,7 @@ let findxy = (res, e : MouseEvent) => {
         }
         if (res == 'move') {
             if (flag) {
+                //TODO: Add acceleration
                 prevX = currX;
                 prevY = currY;
                 currX = e.clientX - canvas.offsetLeft;
