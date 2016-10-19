@@ -8,7 +8,7 @@ let  prevX = 0,
      flag = false;
 
 window.onload = () => {
-   canvas = <HTMLCanvasElement>document.getElementById('cnvs');
+   canvas = <HTMLCanvasElement>document.getElementById('canvas');
    ctx = canvas.getContext("2d");
 
    ctx.fillStyle = "#EEE";
@@ -44,21 +44,24 @@ let findxy = (res, e : MouseEvent) => {
         if (res == 'move') {
             if (flag) {
                 //TODO: Add acceleration
+                //Perhaps use e.timestamp to measure the change between the delta of the timestamps
                 prevX = currX;
                 prevY = currY;
                 currX = e.clientX - canvas.offsetLeft;
                 currY = e.clientY - canvas.offsetTop;
-                draw();
+                draw(2);
             }
         }
     };
 
-let draw = () => {
+let draw = (stroke) => {
+    //TODO: investigate changing lineTo into arcTo/bezierTo in the case that I want less choppy lines
+    //alternative: use the 2nd previous position to position the arc/bezier
         ctx.beginPath();
         ctx.moveTo(prevX, prevY);
         ctx.lineTo(currX, currY);
         ctx.strokeStyle = "#333";
-        ctx.lineWidth = 2;
+        ctx.lineWidth = stroke;
         ctx.stroke();
         ctx.closePath();
 };
@@ -66,10 +69,12 @@ let draw = () => {
 let genImage = () => {
     var dataURL = canvas.toDataURL();
 
-    var img  = document.getElementById("canvasimg");
+    var img  = document.getElementById("snapshot");
     img.style.border = "2px solid";
     img["src"] = dataURL;
-    console.log(img);
+    img.setAttribute("style", "display: none;");
+
+    console.log(dataURL);
 };
 
 window['genImage'] = genImage;
