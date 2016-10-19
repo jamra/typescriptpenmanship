@@ -1,0 +1,4 @@
+.DS_Store
+*.swp
+
+/static/node_modules/*
