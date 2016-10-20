@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "systemjs": "^0.19.39"
+  },
+  "devDependencies": {
+    "ts-loader": "^0.9.5"
+  }
+}
