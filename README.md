@@ -5,4 +5,4 @@ The purpose of this project is to allow for signatures in an app I am working on
 
 ##TODOs
 * draw "X" + line to guide signature
-    * interpolation of signature using cubic bezier (this is hard)
+* interpolation of signature using cubic bezier (this is hard)

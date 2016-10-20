@@ -4,3 +4,4 @@
 /static/node_modules/*
 
 *.hot-update.js*
+serve.exe

@@ -4,6 +4,7 @@ module.exports = {
     filename: './js/bundle.js',
     publicPath: "../"
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
   },
@@ -12,4 +13,4 @@ module.exports = {
       { test: /\.ts$/, loader: 'ts-loader' }
     ]
   }
-}
+};
