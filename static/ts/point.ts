@@ -1,18 +1,24 @@
-
 const VELOCITY_FILTER_WEIGHT : number = 0.7;
 
 
 class Point {
-    constructor(public x: number, public y:number, public timeStamp?:number, public v?:number){}
+    constructor(public x: number, public y:number){}
 
     distanceFrom(p2: Point) {
-        return Math.sqrt( (this.x - p2.x) * (this.x - p2.x) + (this.y - p2.y) * (this.y - p2.y) ); 
-    }
-    velocityFrom(last: Point) {
-        this.v = this.distanceFrom(last) / (this.timeStamp - last.timeStamp);
+        let dx = this.x - p2.x;
+        let dy = this.y - p2.y;
 
-        this.v = VELOCITY_FILTER_WEIGHT * this.v + (1 - VELOCITY_FILTER_WEIGHT) * last.v;
-        return this.v;
+        return Math.sqrt( dx*dx + dy*dy ); 
+    };
+    velocityFrom(last: Point, endTime: number, startTime: number, lastVel: number) {
+        let v = this.distanceFrom(last) / (endTime - startTime);
+
+        v = VELOCITY_FILTER_WEIGHT * v + (1 - VELOCITY_FILTER_WEIGHT) * lastVel;
+        return Math.abs( v );
+    };
+
+    public toString = () : string => {
+        return `x: ${this.x}, y: ${this.y}`;
     };
 };
 
